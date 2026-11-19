@@ -19,18 +19,30 @@ testes, segurança, skills, fluxo) e preenche tudo para ele.
 
 ## Como usar
 
-1. Abra o PowerShell **na raiz do seu projeto**.
+1. Abra o terminal **na raiz do seu projeto**.
 2. O projeto já tem `CLAUDE.md` ou `.claude/settings.json`? Renomeie para
    `CLAUDE.antigo.md` / `.claude/settings.antigo.json`. A skill aproveita o
    que estiver neles.
-3. Baixe o template e copie para o projeto (sem este README e sem os testes
-   da skill):
+3. Baixe o template e copie para o projeto. Vão só `CLAUDE.md`, `docs/` e
+   `.claude/`: o README, a licença e os testes da skill ficam de fora.
+
+   **Windows (PowerShell):**
    ```powershell
-   $t = "$env:TEMP\claude-projeto"
-   git clone --depth 1 [https://github.com/<usuario>/claude-projeto](https://github.com/GustavoWallacy/claude-start-project/tree/main) $t
-   robocopy $t . /E /XF "$t\README.md" /XD "$t\claude" "$t\.git"
+   $t = "$env:TEMP\claude-start-project"
+   git clone --depth 1 https://github.com/GustavoWallacy/claude-start-project $t
+   Copy-Item "$t\CLAUDE.md" .
+   robocopy "$t\docs" docs /E
    robocopy "$t\claude" .claude /E /XD evals
    Remove-Item $t -Recurse -Force
+   ```
+
+   **macOS / Linux / Git Bash:**
+   ```bash
+   t="$(mktemp -d)/claude-start-project"
+   git clone --depth 1 https://github.com/GustavoWallacy/claude-start-project "$t"
+   cp "$t/CLAUDE.md" .
+   mkdir -p docs .claude && cp -R "$t/docs/." docs/ && cp -R "$t/claude/." .claude/
+   rm -rf .claude/skills/start-project/evals "$t"
    ```
 4. Abra o Claude Code no projeto e rode **`/start-project`**.
 5. Responda as seis rodadas: projeto e stack → backend e dados → testes e
