@@ -79,19 +79,30 @@ Pule a rodada inteira se a Rodada 1 disse "Front só" e não há banco.
 
 ## Rodada 5 — Skills
 
-Mostre a lista do pacote do template com uma linha de para que serve cada
-uma (leia o `description` de cada `.claude/skills/*/SKILL.md`), e o estado do
-repositório do GitHub (`pacote-skills.md`).
+O template já traz `start-project`, `security-and-hardening` e
+`security-review` (sempre ficam). As outras vêm do repositório
+`pack-skills`: baixe e monte o menu antes desta rodada, conforme
+`pacote-skills.md` (passos 1–2).
 
-1. **Quais skills do template ficam** (multiSelect; marque as recomendadas
-   pela stack — ex.: `supabase-postgres-best-practices` só com Postgres,
-   `apple-hig-designer` só com app/UI Apple, `dashboard-bi`/`metrics-analyst`
-   só com BI/métricas). `security-and-hardening`, `security-review`,
-   `brainstorm` e `start-project` sempre ficam. `[→ apagar as outras]`
-2. **Pacote do GitHub** — se `pacote-skills.md` tiver repositório: quais
-   instalar (liste as skills de lá). Vazio: diga que está vazio e pule.
-3. **Skill obrigatória por área** — alguma área exige skill (ex.: telas de
-   métrica → `dashboard-bi`; SQL → skill de banco)? `[→ §2]`
+1. **Uma pergunta por categoria** (multiSelect; 📁/🔗 não importa para o
+   usuário, mostre nome + uma linha). Só as categorias que fazem sentido:
+   - **Front-end** — se houver tela. Recomende pela stack (ex.:
+     `apple-hig-designer` só com app/UI Apple, `dashboard-bi` só com
+     dashboard/BI).
+   - **Banco de dados** — se houver banco. A skill do hook `sql-skill`
+     (padrão `supabase-postgres-best-practices`) vem marcada e com
+     "(Recomendado — o hook de SQL exige)"; com banco não-Postgres,
+     pergunte qual skill de banco usar.
+   - **Fluxo** — sempre (`brainstorm` recomendado).
+   - **Marketing** — só se o projeto tem site, landing ou página de venda.
+   - Categoria nova no repositório → pergunte se o assunto existir no
+     projeto.
+   AskUserQuestion aceita até 4 opções: categoria com mais skills vira duas
+   perguntas. Item com `instalar` → avise que é instalado por comando do
+   usuário. `[→ instalar, Skill(...) no settings]`
+2. **Skill obrigatória por área** — alguma área exige skill (ex.: telas de
+   métrica → `dashboard-bi`; SQL → skill de banco; ideia vaga →
+   `brainstorm`)? Só entre as instaladas. `[→ §2]`
 
 ## Rodada 6 — Fluxo de trabalho e hooks
 

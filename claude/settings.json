@@ -8,13 +8,8 @@
       "PowerShell(git diff*)",
       "PowerShell(git log *)",
       "Skill(start-project)",
-      "Skill(brainstorm)",
       "Skill(security-and-hardening)",
-      "Skill(security-review)",
-      "Skill(supabase-postgres-best-practices)",
-      "Skill(dashboard-bi)",
-      "Skill(metrics-analyst)",
-      "Skill(apple-hig-designer)"
+      "Skill(security-review)"
     ],
     "ask": [
       "Bash(git push)",

@@ -63,7 +63,9 @@ não edite**: liste o que falta e pergunte.
   **`<!-- PREENCHER: skill de banco, ex.: supabase-postgres-best-practices -->`**
   antes de escrever.
 <!-- FIM banco -->
+<!-- SE skill-brainstorm -->
 - **Ideia vaga ou decisão de arquitetura** → `brainstorm` antes de planejar.
+<!-- FIM skill-brainstorm -->
 <!-- PREENCHER: outras skills obrigatórias do projeto (ex.: DS, dashboard-bi para telas de métrica). Apague se não houver. -->
 
 ## 3. Regras universais

@@ -90,8 +90,9 @@ Siga `references/montagem.md`. Em resumo:
 - **Hooks:** `config.cjs` conforme as respostas; entradas do `settings.json`
   dos hooks desligados removidas; `permissions.allow` com os comandos reais
   do projeto.
-- **Skills:** apaga as recusadas, instala as do pacote do GitHub
-  (`references/pacote-skills.md`) e acerta os `Skill(...)` do settings.
+- **Skills:** instala as escolhidas na Rodada 5 a partir do repositório
+  `pack-skills` (`references/pacote-skills.md`) e acerta os `Skill(...)`
+  do settings.
 - **`.gitignore`:** acrescenta `.claude/settings.local.json` e `.env*` (com
   exceção `!.env.example`) se faltarem.
 

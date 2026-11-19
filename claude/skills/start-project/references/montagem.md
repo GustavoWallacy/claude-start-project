@@ -22,6 +22,7 @@ Condições:
 | `plano-por-etapa` | Rodada 6.1 = sim / só em tarefa grande (escreva a variante) |
 | `deploy` | Rodada 6.4 deu uma forma de deploy |
 | `e2e-transacao` · `e2e-banco-separado` · `sem-banco` | Rodada 3.2 (exatamente um) |
+| `skill-brainstorm` | `brainstorm` foi instalada na Rodada 5.1 |
 
 ## CLAUDE.md
 
@@ -30,7 +31,7 @@ Condições:
   marque ⚠️ o que toca banco real ou serviço externo. Inclua como rodar uma
   suíte só.
 - **Mapa:** 3–6 bullets de pasta → papel, só o que não é óbvio.
-- **§2:** a skill de banco pelo nome real; skills obrigatórias da Rodada 5.3.
+- **§2:** a skill de banco pelo nome real; skills obrigatórias da Rodada 5.2 (só skill instalada).
 - **§3:** regras universais do domínio (caixa do dado, fuso, moeda) só se o
   usuário citou; regra de uma área vai para a regra da área.
 - **Banco de produção no localhost** (Rodada 2.2): acrescente no §3 "O
@@ -90,9 +91,13 @@ README da pasta.
 
 ## Skills
 
-- Apague as pastas recusadas na Rodada 5.1 (nunca `security-*`,
-  `brainstorm`, `start-project`).
-- Pacote do GitHub: procedimento em `pacote-skills.md`.
+- O template só traz `start-project`, `security-and-hardening` e
+  `security-review` — nunca apague essas.
+- As escolhidas na Rodada 5.1 vêm do repositório `pack-skills`:
+  procedimento em `pacote-skills.md` (baixar, instalar 📁/🔗, revisar,
+  `Skill(...)`, limpar).
+- Banco SQL com `sql-skill` ligado e a skill de `config.sql.skill` não
+  instalada → ajuste (ver "Skill exigida por hook" em `pacote-skills.md`).
 
 ## .gitignore
 

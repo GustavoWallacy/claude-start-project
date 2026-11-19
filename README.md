@@ -98,20 +98,19 @@ Precisam de **Node.js** instalado.
 
 ## Skills
 
+O template traz só o essencial:
+
 | Skill | Para quê | Origem |
 |---|---|---|
 | `start-project` | entrevista e monta o harness deste template | própria |
 | `security-and-hardening` | preventiva: modelo de ameaça + regras ao escrever código sensível | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) (MIT) |
 | `security-review` | auditoria: revisa o diff, só reporta o explorável | [getsentry/skills](https://github.com/getsentry/skills) (Apache-2.0) |
-| `supabase-postgres-best-practices` | Postgres: queries, índices, schema | [supabase/agent-skills](https://github.com/supabase/agent-skills) (MIT) |
-| `apple-hig-designer` | UI no padrão Apple HIG | Apple HIG Designer Contributors (MIT) |
-| `brainstorm` | questiona uma ideia antes de planejar | própria |
-| `dashboard-bi` | dashboards React + Recharts com cross-filter | própria |
-| `metrics-analyst` | propõe métricas/KPIs a partir do banco | própria |
 
-Pacote extra do GitHub: configurado em
-`claude/skills/start-project/references/pacote-skills.md` (vazio por
-enquanto).
+As outras vêm do **[pack-skills](https://github.com/GustavoWallacy/pack-skills)**,
+separadas por categoria (front-end, banco de dados, fluxo, marketing). Na
+entrevista, o `/start-project` pergunta categoria por categoria e instala só
+as escolhidas. Configuração em
+`claude/skills/start-project/references/pacote-skills.md`.
 
 ## Contribuir
 
