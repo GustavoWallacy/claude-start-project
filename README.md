@@ -28,10 +28,16 @@ testes, segurança, skills, fluxo) e preenche tudo para ele.
 
    **Windows (PowerShell):**
    ```powershell
+<<<<<<< HEAD
    $t = "$env:TEMP\claude-start-project"
    git clone --depth 1 https://github.com/GustavoWallacy/claude-start-project $t
    Copy-Item "$t\CLAUDE.md" .
    robocopy "$t\docs" docs /E
+=======
+   $t = "$env:TEMP\claude-projeto"
+   git clone --depth 1 https://github.com/GustavoWallacy/claude-start-project $t
+   robocopy $t . /E /XF "$t\README.md" /XD "$t\claude" "$t\.git"
+>>>>>>> 4c628d01686984dc596b51015d1984e5503c3233
    robocopy "$t\claude" .claude /E /XD evals
    Remove-Item $t -Recurse -Force
    ```
