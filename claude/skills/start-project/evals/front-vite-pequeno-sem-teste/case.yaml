@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: front-vite-pequeno-sem-teste
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  Harness enxuto de um front estático: sem rodada de backend, CLAUDE.md sem blocos
+  de banco/migration/acesso/auditoria/plano, com Layout e print de tela; testes.md
+  com bloco sem-banco + tela e vitest proposto; hooks de SQL e escrita no banco
+  desligados (config e settings), formatador prettier ligado, segurança em modo
+  avisar; quatro skills removidas; nenhum commit.

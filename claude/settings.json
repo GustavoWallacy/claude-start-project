@@ -1,0 +1,147 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log *)",
+      "PowerShell(git status*)",
+      "PowerShell(git diff*)",
+      "PowerShell(git log *)",
+      "Skill(start-project)",
+      "Skill(brainstorm)",
+      "Skill(security-and-hardening)",
+      "Skill(security-review)",
+      "Skill(supabase-postgres-best-practices)",
+      "Skill(dashboard-bi)",
+      "Skill(metrics-analyst)",
+      "Skill(apple-hig-designer)"
+    ],
+    "ask": [
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git -C * push*)",
+      "Bash(git -c * push*)",
+      "Bash(git commit)",
+      "Bash(git commit *)",
+      "Bash(git -C * commit*)",
+      "Bash(git -c * commit*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean *)",
+      "Bash(git checkout -- *)",
+      "Bash(git checkout .)",
+      "Bash(git restore *)",
+      "Bash(git branch -D *)",
+      "Bash(git stash drop*)",
+      "Bash(git stash clear*)",
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "PowerShell(git push)",
+      "PowerShell(git push *)",
+      "PowerShell(git -C * push*)",
+      "PowerShell(git -c * push*)",
+      "PowerShell(git commit)",
+      "PowerShell(git commit *)",
+      "PowerShell(git -C * commit*)",
+      "PowerShell(git -c * commit*)",
+      "PowerShell(git reset --hard*)",
+      "PowerShell(git clean *)",
+      "PowerShell(git checkout -- *)",
+      "PowerShell(git checkout .)",
+      "PowerShell(git restore *)",
+      "PowerShell(git branch -D *)",
+      "PowerShell(git stash drop*)",
+      "PowerShell(git stash clear*)",
+      "PowerShell(Remove-Item * -Recurse*)",
+      "Read(**/.env)",
+      "Edit(**/.env)",
+      "Read(**/.env.local)",
+      "Edit(**/.env.local)",
+      "Read(**/.env.production)",
+      "Edit(**/.env.production)",
+      "Read(**/.env.development)",
+      "Edit(**/.env.development)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/qualidade.cjs", "baseline"],
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/segredos.cjs"],
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/seguranca-skill.cjs"],
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/sql-skill.cjs"],
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/banco-escrita.cjs"],
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/formatar.cjs"],
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/lembretes.cjs"],
+            "timeout": 20
+          },
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/qualidade.cjs", "check"],
+            "asyncRewake": true,
+            "timeout": 300
+          }
+        ]
+      }
+    ]
+  }
+}

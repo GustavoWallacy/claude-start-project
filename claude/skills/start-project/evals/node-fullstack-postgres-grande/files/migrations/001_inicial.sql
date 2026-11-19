@@ -1,0 +1,2 @@
+CREATE TABLE usuarios (id SERIAL PRIMARY KEY, nome TEXT NOT NULL, email TEXT UNIQUE NOT NULL, senha_hash TEXT NOT NULL);
+CREATE TABLE pedidos (id SERIAL PRIMARY KEY, usuario_id INT REFERENCES usuarios(id), status TEXT NOT NULL);

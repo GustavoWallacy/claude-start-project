@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: python-fastapi-pequeno-transacao
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  Harness de uma API Python com banco de produção no localhost: CLAUDE.md com aviso
+  forte de produção, comandos uvicorn/pytest/alembic, plano só em tarefa grande;
+  testes.md só com o bloco de transação; qualidade desligada (não-JS) e anotada;
+  banco-escrita com ambiente PRODUÇÃO e padrão de teste pytest; formatador ruff;
+  segurança bloqueando app/routes e app/auth.py; três skills removidas; nenhum commit.

@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: node-fullstack-postgres-grande
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  O harness fica preenchido para uma loja full-stack Node/TS + Postgres grande:
+  CLAUDE.md sem marcadores, com comandos reais do package.json, plano por etapa,
+  skill de banco e de segurança no §2, deploy EasyPanel; testes.md só com o bloco
+  de banco de teste separado; seguranca.md e config.cjs com rotas/middleware como
+  caminhos sensíveis em modo bloquear; formatador desligado; apple-hig-designer e
+  dashboard-bi removidas; nenhum commit.
