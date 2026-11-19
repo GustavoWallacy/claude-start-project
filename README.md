@@ -27,7 +27,7 @@ testes, segurança, skills, fluxo) e preenche tudo para ele.
    da skill):
    ```powershell
    $t = "$env:TEMP\claude-projeto"
-   git clone --depth 1 https://github.com/<usuario>/claude-projeto $t
+   git clone --depth 1 [https://github.com/<usuario>/claude-projeto](https://github.com/GustavoWallacy/claude-start-project/tree/main) $t
    robocopy $t . /E /XF "$t\README.md" /XD "$t\claude" "$t\.git"
    robocopy "$t\claude" .claude /E /XD evals
    Remove-Item $t -Recurse -Force
